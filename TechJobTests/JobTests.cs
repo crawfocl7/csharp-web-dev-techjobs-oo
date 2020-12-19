@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechJobsOO;
+using System;
 
 namespace TechJobTests
 {
@@ -9,21 +10,26 @@ namespace TechJobTests
         [TestMethod]
         public void TestSettingJobId()
         {
-            Job test_jobOne = new Job();
-            Job test_jobTwo = new Job();
-            int differByOne = test_jobTwo.Id - test_jobOne.Id;
+            Job test_job1 = new Job();
+            Job test_job2 = new Job();
+            int differBy1 = test_job2.Id - test_job1.Id;
             //Test that job object id's are not the same.
-            Assert.IsFalse(test_jobOne.Id == test_jobTwo.Id);
+            Assert.IsFalse(test_job1.Id == test_job2.Id);
 
             //Test that job object id's are different by 1.
-            Assert.AreEqual(1, differByOne, .001);
+            Assert.AreEqual(1, differBy1, .001);
 
+        }
+
+        public void TestJobConstructorSetsAllFields()
+        {
+            Job test_job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            Assert.AreEqual("Product tester", test_job3.EmployerName);
+            //Assert.IsFalse( );
+        //    Assert.AreEqual("ACME", test_job1.EmployerName);
+        //    Assert.AreEqual("Desert", test_job1.Name);
+        //    Assert.AreEqual("Product tester", test_job1.Name);
+        //    Assert.AreEqual("Product tester", test_job1.Name);
         }
     }
 }
-
-
-
-
-//Job test_jobOne = new TechJobsOO.Job("Santa's Assistant", new TechJobsOO.Employer("Santa Clause"), new TechJobsOO.Location("North Pole"), new TechJobsOO.PositionType("Elf"), new TechJobsOO.CoreCompetency("On the Good List"));
-//Job test_jobTwo = new TechJobsOO.Job("Reindeer Attendant", new TechJobsOO.Employer("Santa Clause"), new TechJobsOO.Location("North Pole"), new TechJobsOO.PositionType("Reindeer Support"), new TechJobsOO.CoreCompetency("Veterinarian"));
