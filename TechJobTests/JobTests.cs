@@ -17,19 +17,19 @@ namespace TechJobTests
             Assert.IsFalse(test_job1.Id == test_job2.Id);
 
             //Test that job object id's are different by 1.
-            Assert.AreEqual(1, differBy1, .001);
+            Assert.AreEqual(1, differBy1);
 
         }
 
+        [TestMethod]
         public void TestJobConstructorSetsAllFields()
         {
             Job test_job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-            Assert.AreEqual("Product tester", test_job3.EmployerName);
-            //Assert.IsFalse( );
-        //    Assert.AreEqual("ACME", test_job1.EmployerName);
-        //    Assert.AreEqual("Desert", test_job1.Name);
-        //    Assert.AreEqual("Product tester", test_job1.Name);
-        //    Assert.AreEqual("Product tester", test_job1.Name);
+            Assert.AreEqual("Product tester", test_job3.Name);
+            Assert.AreEqual("ACME", test_job3.EmployerName.Value);
+            Assert.AreEqual("Desert", test_job3.EmployerLocation.Value);
+            Assert.AreEqual("Quality control", test_job3.JobType.Value);
+            Assert.AreEqual("Persistence", test_job3.JobCoreCompetency.Value);
         }
     }
 }
