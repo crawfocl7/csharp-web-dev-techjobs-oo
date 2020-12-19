@@ -7,7 +7,7 @@ namespace TechJobsOO
     {
         public int Id { get; }
         private static int nextId = 1;
-        public string Value { get; set; }
+
         public string Name { get; set; }
         public Employer EmployerName { get; set; }
         public Location EmployerLocation { get; set; }
@@ -17,13 +17,12 @@ namespace TechJobsOO
         // TODO: Add the two necessary constructors.
         public Job()
         {
-            nextId = Id;
+            Id = nextId;
             nextId++;
         }
 
-        public Job(string value, string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency coreComptency) : this()
+        public Job(string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency coreComptency) : this()
         {
-            Value = value;
             Name = name;
             EmployerName = employerName;
             EmployerLocation = employerLocation;
