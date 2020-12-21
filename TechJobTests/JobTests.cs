@@ -38,9 +38,17 @@ namespace TechJobTests
         {
             Job test_job4 = new Job("Santa's helper", new Employer("Santa Clause, Inc."), new Location("North Pole"), new PositionType("Elf"), new CoreCompetency("On the Good List"));
             Job test_job5 = new Job("Santa's helper", new Employer("Santa Clause, Inc."), new Location("North Pole"), new PositionType("Elf"), new CoreCompetency("On the Good List"));
-            bool testJobEquality = test_job4.Id == test_job5.Id;
-            Assert.AreEqual(test_job4.Id, test_job5.Id, "False");
-            //Assert.IsFalse(testJobEquality);
+            bool testJobEquality = test_job4.Id.Equals(test_job5);
+            Assert.AreEqual(false, testJobEquality);
+        }
+
+        [TestMethod]
+
+        public void TestToString()
+        {
+            Job test_job6 = new Job("Reindeer Specialist", new Employer("Santa Clause, Inc."), new Location("North Pole"), new PositionType("Reindeer Support"), new CoreCompetency("Veterinarian"));
+            
+        
         }
     }
 }
