@@ -38,7 +38,7 @@ namespace TechJobTests
         {
             Job test_job4 = new Job("Santa's helper", new Employer("Santa Clause, Inc."), new Location("North Pole"), new PositionType("Elf"), new CoreCompetency("On the Good List"));
             Job test_job5 = new Job("Santa's helper", new Employer("Santa Clause, Inc."), new Location("North Pole"), new PositionType("Elf"), new CoreCompetency("On the Good List"));
-            bool testJobEquality = test_job4.Id.Equals(test_job5);
+            bool testJobEquality = test_job4.Equals(test_job5);
             Assert.AreEqual(false, testJobEquality);
         }
 
@@ -46,9 +46,14 @@ namespace TechJobTests
 
         public void TestToString()
         {
+            bool correctNewLineEntries = false;
             Job test_job6 = new Job("Reindeer Specialist", new Employer("Santa Clause, Inc."), new Location("North Pole"), new PositionType("Reindeer Support"), new CoreCompetency("Veterinarian"));
-            
-        
+            string jobToString = test_job6.ToString();
+            if (jobToString[0] == '\n' && jobToString[jobToString.Length - 1] == '\n')
+            {
+                correctNewLineEntries = true;
+            }
+            Assert.IsTrue(correctNewLineEntries);
         }
     }
 }
