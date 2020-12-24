@@ -42,14 +42,39 @@ namespace TechJobTests
         [TestMethod]
         public void TestToString()
         {
-            bool correctNewLineEntries = false;
+            bool hasCorrectNewLines = false;
             Job test_job6 = new Job("Reindeer Specialist", new Employer("Santa Clause, Inc."), new Location("North Pole"), new PositionType("Reindeer Support"), new CoreCompetency("Veterinarian"));
             string jobToString = test_job6.ToString();
-            if (jobToString[0] == '\n' && jobToString[jobToString.Length - 1] == '\n')
+            if (jobToString.StartsWith('\n') && jobToString.EndsWith('\n'))
             {
-                correctNewLineEntries = true;
+                hasCorrectNewLines = true;
             }
-            Assert.IsTrue(correctNewLineEntries);
+            Assert.IsTrue(hasCorrectNewLines);
         }
+
+        [TestMethod]
+        public void TestToStringLabels()
+        {
+            Job test_job7 = new Job("Reindeer Specialist", new Employer("Santa Clause, Inc."), new Location("North Pole"), new PositionType("Reindeer Support"), new CoreCompetency("Veterinarian"));
+            string correctStringLabels = $"\nID: {test_job7.Id}\nName: {test_job7.Name}\nEmployer: {test_job7.EmployerName.Value}\nLocation: {test_job7.EmployerLocation.Value}\nPosition Type: {test_job7.JobType.Value}\nCore Competency: {test_job7.JobCoreCompetency.Value}\n";
+            Assert.AreEqual(correctStringLabels, test_job7.ToString());
+        }
+
+        [TestMethod]
+        public void TestFieldsEmpty()
+        {
+            Job test_job8 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+            string testEmptyFields= $"\nID: {test_job8.Id}\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n";
+            Assert.AreEqual(testEmptyFields, test_job8.ToString());
+        }
+
+        [TestMethod]
+        public void TestOnlyId()
+        {
+            Job test_job9 = new Job();
+            string testOnlyId = "OOPS! This job does not seem to exist.";
+            Assert.AreEqual(testOnlyId, test_job9.ToString());
+        }
+
     }
 }
