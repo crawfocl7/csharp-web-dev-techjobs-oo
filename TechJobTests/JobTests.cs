@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechJobsOO;
-using System;
 
 namespace TechJobTests
 {
@@ -18,7 +17,6 @@ namespace TechJobTests
 
             //Test that job object id's are different by 1.
             Assert.AreEqual(1, differBy1);
-
         }
 
         [TestMethod]
@@ -33,7 +31,6 @@ namespace TechJobTests
         }
 
         [TestMethod]
-
         public void TestJobsForEquality()
         {
             Job test_job4 = new Job("Santa's helper", new Employer("Santa Clause, Inc."), new Location("North Pole"), new PositionType("Elf"), new CoreCompetency("On the Good List"));
@@ -43,7 +40,6 @@ namespace TechJobTests
         }
 
         [TestMethod]
-
         public void TestToString()
         {
             bool correctNewLineEntries = false;
