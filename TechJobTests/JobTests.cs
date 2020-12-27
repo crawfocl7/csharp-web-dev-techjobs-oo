@@ -6,7 +6,6 @@ namespace TechJobTests
     [TestClass]
     public class JobTests
     {
-        [TestMethod]
         public void TestSettingJobId()
         {
             Job test_job1 = new Job();
@@ -61,20 +60,19 @@ namespace TechJobTests
         }
 
         [TestMethod]
-        public void TestFieldsEmpty()
+        public void TestToStringFieldsEmpty()
         {
             Job test_job8 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
-            string testEmptyFields= $"\nID: {test_job8.Id}\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n";
+            string testEmptyFields = $"\nID: {test_job8.Id}\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n";
             Assert.AreEqual(testEmptyFields, test_job8.ToString());
         }
 
         [TestMethod]
-        public void TestOnlyId()
+        public void TestToStringOnlyId()
         {
             Job test_job9 = new Job();
             string testOnlyId = "OOPS! This job does not seem to exist.";
             Assert.AreEqual(testOnlyId, test_job9.ToString());
         }
-
     }
 }

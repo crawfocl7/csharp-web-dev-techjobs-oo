@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace TechJobsOO
 {
@@ -57,6 +56,6 @@ namespace TechJobsOO
                 string competency = String.IsNullOrEmpty(JobCoreCompetency.Value) ? "Data not available" : JobCoreCompetency.Value;
                 return String.Format("\nID: {0}\nName: {1}\nEmployer: {2}\nLocation: {3}\nPosition Type: {4}\nCore Competency: {5}\n", Id, name, employer, location, jobtype, competency);
             }
-            }
         }
+    }
 }
